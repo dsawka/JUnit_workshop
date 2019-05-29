@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertEquals;
 
-//*****ZADANIE 2******
+//*****ZADANIE 3******
 public class SingUpBusiness {
 
     private static final String URL = "https://men-men-s-01.codersguru.pl/";
