@@ -11,6 +11,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+//**********ZADANIE 1*********
 public class CodersGuru {
 
     private static final String URL = "https://men-men-s-01.codersguru.pl/";
