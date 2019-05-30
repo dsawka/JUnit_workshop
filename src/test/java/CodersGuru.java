@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 //**********ZADANIE 1*********
 public class CodersGuru {
@@ -36,7 +37,7 @@ public class CodersGuru {
         List<String> linkList = new ArrayList<>();
         for (WebElement link : links) {
             String name = link.getAttribute("href");
-            assertEquals(true, linkList.add(name));
+            assertTrue(linkList.add(name));
         }
         for (String linkAdres : linkList) {
             driver.get(linkAdres);
