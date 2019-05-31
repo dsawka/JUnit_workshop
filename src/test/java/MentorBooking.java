@@ -66,6 +66,7 @@ public class MentorBooking {
     @Test
     public void singUpAndBook() {
         driver.get(URL);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.findElement(By.className(EMAIL_INPUT_SENT)).submit();
         driver.findElement(By.id(EMAIL_FIELD)).sendKeys(EMAIL_VALUE);
         driver.findElement(By.id(NAME_FIELD)).sendKeys(NAME_VALUE);
@@ -88,10 +89,18 @@ public class MentorBooking {
                 subject.click();
             }
         }
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("main-page-top__select-btn")));
         driver.findElement(By.className("main-page-top__select-btn")).click();
-        List<WebElement> mentors = driver.findElements(By.tagName("button"));
-        mentors.get(0).click();
-//**************to be continued***********
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("button")));
+        driver.findElements(By.tagName("button")).get(0).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='dateSelect']/ul[1]/li[1]")));
+        driver.findElement(By.xpath("//div[@id='dateSelect']/ul[1]/li[1]")).click();
+        driver.findElement(By.xpath("//div[@id='hourSelect']/ul[1]/li[1]")).click();
+        driver.findElement(By.tagName("textarea")).sendKeys("I have problem with GIT.");
+        driver.findElement(By.xpath("//button[@class='reservation-modal__summary-button button']")).click();
+        wait.until(ExpectedConditions.titleIs("PayU"));
+        assertEquals("PayU", driver.getTitle());
+
     }
 
 }
